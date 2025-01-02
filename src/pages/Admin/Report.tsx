@@ -127,7 +127,7 @@ export default function Report() {
                     <TableCell>
                       {" "}
                       <a
-                        href={`http://127.0.0.1:8000/storage/report/${item.proof}`}
+                        href={`https://api-interview.mcomp.web.id/storage/report/${item.proof}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
