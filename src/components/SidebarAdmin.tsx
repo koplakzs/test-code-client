@@ -12,7 +12,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
+import { Button } from "./ui/button";
 
 const items = [
   {
@@ -28,6 +29,12 @@ const items = [
 ];
 
 export default function SidebarAdmin() {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    sessionStorage.clear();
+    navigate("/", { replace: true });
+  };
   return (
     <Sidebar className="bg-zinc-800">
       <SidebarHeader>
@@ -56,10 +63,10 @@ export default function SidebarAdmin() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <NavLink to={"/"}>
+              <Button onClick={logout}>
                 <LogOut />
                 <span>Keluar</span>
-              </NavLink>
+              </Button>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
